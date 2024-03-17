@@ -6,13 +6,16 @@ function GuessInput() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    console.info({ guess })
+    const guessInUppercase = guess.toUpperCase();
+    console.info({ guess: guessInUppercase });
+
+
   }
 
   return <>
     <form className='guess-input-wrapper' onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
-      <input id="guess-input" type="text" value={guess} onChange={(event) => {
+      <input minLength={5} maxLength={5} id="guess-input" type="text" value={guess} onChange={(event) => {
         setGuess(event.target.value);
       }} />
     </form>
