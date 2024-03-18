@@ -20,7 +20,7 @@ function GuessInput({ answer }) {
 
     <form className='guess-input-wrapper' onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
-      <input minLength={5} maxLength={5} id="guess-input" type="text" value={guess} onChange={(event) => {
+      <input disabled={guess === answer || guesses.length > 4} minLength={5} maxLength={5} id="guess-input" type="text" value={guess} onChange={(event) => {
         setGuess(event.target.value);
       }} />
     </form>
